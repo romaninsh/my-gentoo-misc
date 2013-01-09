@@ -1,0 +1,8 @@
+#!/bin/bash
+rm /var/tmp/.updates
+if [ ! -e /var/tmp/.updates ] ; then
+    /usr/local/sbin/check-updates > /var/tmp/.updates
+fi
+
+cat /var/tmp/.updates
+

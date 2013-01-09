@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd /etc/motd.d
+
+rm -f /tmp/motd-tmp
+touch /tmp/motd-tmp
+
+for SCRIPT in $(ls); do
+    test -x ${SCRIPT} || continue
+
+    ./${SCRIPT} >> /tmp/motd-tmp
+done
+
+echo >> /tmp/motd-tmp
+
+mv /tmp/motd-tmp /etc/motd
+
