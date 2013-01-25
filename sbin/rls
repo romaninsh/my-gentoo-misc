@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# This utility lists files being deleted from current directory
+#  (by romans, (c) t-mark 2007)
+
+case "$1" in
+    -h|--help)
+        echo -e "\ntRashbin file LiSting utility v1.2 (c) T-Mark 2007\n  Usage: rls [-m]\n    -m  shows files deleted during this month"
+        exit
+        ;;
+
+    -m)
+        logs="$HOME/.trash/`date '+%Y-%m'`/trashbin.log"
+        ;;
+    *)
+        # warning, this potentially can be too long
+        logs="$HOME/.trash/*/trashbin.log"
+        ;;
+esac
+
+p=`pwd | sed 's|/|\\\/|g'`
+
+cat $logs 2>/dev/null | grep -E "$p[/]?[^/]*$" | awk -F : '{ print $2 " \t" $1 }' | sort | sed 's/^[^ ]*\///' | expand -16

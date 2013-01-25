@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# This is safe file removal utility.
+#  (by romans, (c) t-mark 2007)
+#
+# v1.2
+
+[ -z "$*" ] && echo -e "\ntRashbin file ReMoval utility v1.2 (c) T-Mark 2007\n  Usage: rrm file1 file2 file3\n"
+
+# Make sure trashbin directory exists
+tb="$HOME/.trash/`date '+%Y-%m/%d-%H'`"
+mkdir -p "$tb"
+
+while [ "$1" ];
+do
+    if [ -e "$1" ]; then
+        dst=$tb/`basename $1 | tr ':' '_'`
+        [ -e $dst ] && { dst=`mktemp $dst.XXXXX`; rm "$dst"; }
+        mv -v -f -- "$1" "$dst" && echo "$dst:`pwd`/$1" >> "$HOME/.trash/`date '+%Y-%m/'`trashbin.log"
+    else
+        echo "rrm: $1: No such file or directory"
+    fi
+    shift
+done
