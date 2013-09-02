@@ -3,9 +3,10 @@
 # Place in /etc/motd.d and drop the .sh suffix.
 
 #echo -e "\n\033[1mWelcome to Gentoo Linux!\033[0m"
-linux_logo -L 2
+#linux_logo -L 2
 
 echo -e "This server is maintained by \033[1m$(cat /etc/maintainer)\033[0m. (\033[1m$(cat /etc/maintainer-address)\033[0m)."
+echo "This system uses Romans My-Gentoo-Misc repsoitory (https://github.com/romaninsh/my-gentoo-misc)"
 
 MAX=$(($(cat /proc/cpuinfo | grep processor | wc -l) - 1))
 LOAD=$(cat /proc/loadavg | cut -d '.' -f 1)
