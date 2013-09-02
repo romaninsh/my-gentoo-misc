@@ -1,0 +1,5 @@
+app-admin/pydf
+app-admin/sudo
+app-portage/gentoolkit
+app-portage/layman
+sys-process/htop
