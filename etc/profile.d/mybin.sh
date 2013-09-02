@@ -1,4 +1,4 @@
-export PATH=$PATH:/etc/my-gentoo-misc/bin
+export PATH=$PATH:/etc/my/bin
 
 alias top=htop
 alias df=pydf
