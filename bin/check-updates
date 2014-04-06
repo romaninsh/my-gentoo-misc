@@ -2,6 +2,9 @@
 
 # Place in /usr/local/sbin and drop the .sh suffix.
 
+eix-remote update >/dev/null
+eix-sync >/dev/null
+
 SYS=$(emerge -uDNpq system | grep ebuild | wc -l)
 WRL=$(emerge -uDNpq world | grep ebuild | wc -l)
 SEC=$(glsa-check -l affected 2> /dev/null | grep \\[ | wc -l)
