@@ -2,6 +2,9 @@
 
 # Adds new user just the way we wont
 
+echo "use adduser.py"
+exit;
+
 username=$1
 pass=`makepasswd`
 home="/home/$username"
