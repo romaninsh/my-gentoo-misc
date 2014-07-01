@@ -17,6 +17,9 @@ rc default
 emerge -u nullmailer
 emerge --config nullmailer
 
+rc-update add nullmailer default
+rc default
+
 grep -q 10.129.216.119 /etc/nullmailer/remotes || echo '10.129.216.119 smtp' >> /etc/nullmailer/remotes
 
-
+emerge --config fcron
