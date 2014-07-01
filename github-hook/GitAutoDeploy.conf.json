@@ -1,0 +1,36 @@
+{
+	"port": 8001, 
+	"repositories": 
+	[
+        {
+		"url": "https://github.com/atk4/agiletoolkit-css", 
+		"path": "/www/css.agiletoolkit.org/",
+		"deploy": "echo deploying"
+	},
+        {
+		"url": "https://github.com/atk4/docs", 
+		"path": "/www/agiletoolkit.org/",
+		"deploy": "./update.sh"
+	},
+        {
+		"url": "https://github.com/atk4/book", 
+		"path": "/www/book.agiletoolkit.org/",
+		"deploy": "make"
+	},
+        {
+		"url": "https://github.com/atk4/agiletoolkit.org", 
+		"path": "/www/agiletoolkit.org/",
+		"deploy": "./update.sh"
+	},
+        {
+		"url": "https://github.com/atk4/atk4", 
+		"path": "/www/agiletoolkit.org/",
+		"deploy": "./update.sh"
+	},
+        {
+		"url": "git@github.com:agiletech/ex_01.git", 
+		"path": "/www/ex01.demo.agile55.com/",
+		"deploy": "echo deploying"
+	}
+        ]
+}
